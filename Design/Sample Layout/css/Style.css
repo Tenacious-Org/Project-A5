@@ -1,0 +1,61 @@
+
+.logo-image{
+  padding-left:2rem;
+  height: 100px;
+}
+ .navbar{
+   background-color: #06113C;
+   height: 170px;
+ }
+.navbar-brand{
+  padding-top:4.5em;
+  padding-left: 1.5rem;
+  text-align: left;
+}
+.login-button{
+  margin-top:4.5em;
+}
+
+#post{
+  text-align:center;
+  margin-left:250px;
+}
+.card{
+  width: 35rem;
+}
+.card-body{
+  padding-left: 3rem;
+}
+.card-title,.card-text{
+  text-align: center;
+}
+.fa-square-plus{
+  padding-top: 7.5px;
+}
+.AllComments{
+  margin-top:10px;
+}
+.MoreComments{
+text-align-center;
+}
+.FooterImage{
+  text-align: center;
+  background:#06113C;
+}
+#Paging  {
+  padding:30px 0px 30px 850px;
+  align-item:center;
+}
+.backgroundColor{
+  background-color: #DDDDDD;
+}
+#home-filters{
+margin-top:50px;
+}
+.Filter{
+  margin-left:250px;
+}
+.dropdown{
+margin-left:500px;
+}
+
