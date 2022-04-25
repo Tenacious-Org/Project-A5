@@ -8356,4 +8356,28 @@ a[data-toggle="collapse"] {
   .navbar-brand{
     color:var(--purple);
   }
+  .card{
+    border: 1px solid black;
+    max-width:26rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+  }
+  .profile{
+    width: 150px;
+    height:150px;
+  }
+  .profile-card-3 .profile {
+    border-radius: 50%;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 1);
+  
+  }
+  .profile-thumb-block{
+    display: inline-block;
+    margin: 15px 50px 15px 20px;
+  }
+  
+  .MoreComments{
+  margin: 0px 22px 10px 22px;
+  }
   
