@@ -1,6 +1,3 @@
-
-
-
 namespace A5API.Models
 {
     public class Employee
