@@ -12,8 +12,8 @@ namespace A5.Models
         public int OrganisationId{ get; set; }
         public Organisation? Organisation{ get; set; } 
         public int CreatedBy {get;set;}
-        public int CreatedOn {get;set;}
+        public DateTime CreatedOn {get;set;}
         public int UpdatedBy {get;set;}
-        public int UpdatedOn {get;set;}
+        public DateTime UpdatedOn {get;set;}
     }
 }

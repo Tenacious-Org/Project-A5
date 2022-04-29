@@ -7,6 +7,6 @@ namespace A5.Data.Service
 {
     public interface IDesignationService : IEntityBaseRepository<Designation>
     {
-        public Designation GetByDepartmentId(int id);
+        public IEnumerable<Designation> GetByDepartmentId(int id);
     }
 }

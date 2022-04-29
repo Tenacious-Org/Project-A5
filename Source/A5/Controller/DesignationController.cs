@@ -12,7 +12,7 @@ namespace A5.Controller
         private readonly DesignationService _designationService;
         public DesignationController(DesignationService designationService)
         {
-            _designationService = organisationService;
+            _designationService = designationService;
         } 
 
         [HttpGet("GetAll")]

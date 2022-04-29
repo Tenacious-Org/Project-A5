@@ -7,9 +7,11 @@ namespace A5.Data.Service
 {
     public class DesignationService : EntityBaseRepository<Designation>, IDesignationService
     {
+        private readonly AppDbContext _context;
         public DesignationService(AppDbContext context) : base(context) { }
 
-        public Designation GetByDepartmentId(int id) => _context.Set<T>().FirstOrDefault(nameof =>nameof.DepartmentId == id);
+        
+        public IEnumerable<Designation> GetByDepartmentId(int id) => _context.Set<Designation>().FirstOrDefault(nameof =>nameof.DepartmentId == id);
     
         
     }
