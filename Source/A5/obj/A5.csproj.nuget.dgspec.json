@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Project-A5\\Source\\A5\\A5.csproj": {}
+    "D:\\Tenacious\\Project-A5\\Source\\A5\\A5.csproj": {}
   },
   "projects": {
-    "E:\\Project-A5\\Source\\A5\\A5.csproj": {
+    "D:\\Tenacious\\Project-A5\\Source\\A5\\A5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Project-A5\\Source\\A5\\A5.csproj",
+        "projectUniqueName": "D:\\Tenacious\\Project-A5\\Source\\A5\\A5.csproj",
         "projectName": "A5",
-        "projectPath": "E:\\Project-A5\\Source\\A5\\A5.csproj",
-        "packagesPath": "C:\\Users\\dinesh.boopathy\\.nuget\\packages\\",
-        "outputPath": "E:\\Project-A5\\Source\\A5\\obj\\",
+        "projectPath": "D:\\Tenacious\\Project-A5\\Source\\A5\\A5.csproj",
+        "packagesPath": "C:\\Users\\yalapala.jayaram\\.nuget\\packages\\",
+        "outputPath": "D:\\Tenacious\\Project-A5\\Source\\A5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\dinesh.boopathy\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\yalapala.jayaram\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -65,6 +65,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "serilog.aspnetcore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [

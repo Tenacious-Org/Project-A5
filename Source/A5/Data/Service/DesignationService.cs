@@ -8,6 +8,10 @@ namespace A5.Data.Service
     public class DesignationService : EntityBaseRepository<Designation>, IDesignationService
     {
         public DesignationService(AppDbContext context) : base(context) { }
+
+        public Designation GetByDepartmentId(int id) => _context.Set<T>().FirstOrDefault(nameof =>nameof.DepartmentId == id);
+    
         
     }
+
 }

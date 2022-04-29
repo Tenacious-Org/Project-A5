@@ -10,6 +10,10 @@ namespace A5.Models
 
         //Relation
         public int OrganisationId{ get; set; }
-        public Organisation Organisation{ get; set; } = default!;
+        public Organisation? Organisation{ get; set; } 
+        public int CreatedBy {get;set;}
+        public int CreatedOn {get;set;}
+        public int UpdatedBy {get;set;}
+        public int UpdatedOn {get;set;}
     }
 }
