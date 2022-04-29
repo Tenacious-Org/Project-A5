@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using A5.Models;
 
 namespace A5.Data.Base
 {
@@ -23,6 +24,32 @@ namespace A5.Data.Base
             }
             return result;
         }
+
+        public bool Disable(T entity, int id)
+        {
+            bool result = false;
+            if(entity != null && entity.Id == id)
+            {
+                var disable = _context.Set<T>().FirstOrDefault(nameof =>nameof.Id == id);
+                disable.IsActive = false;
+                _context.SaveChanges();
+                result = true;
+            }
+            return result;
+        }
+
+        public bool Update(T entity, int id)
+        {
+            bool result = false;
+            if(entity != null && entity.Id == id)
+            {
+                _context.Set<T>().Update(entity);
+                _context.SaveChanges();
+                result = true;
+            }
+            return result;
+        }
+
         public T GetById(int id) => _context.Set<T>().FirstOrDefault(nameof =>nameof.Id == id);
         public IEnumerable<T> GetAll() => _context.Set<T>().ToList();
 
