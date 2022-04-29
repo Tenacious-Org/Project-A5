@@ -1,6 +1,8 @@
+using A5.Data.Base;
+
 namespace A5.Models
 {
-    public class Designation
+    public class Designation : IEntityBase
     {
         public int Id{ get; set; }
         public string?  DesignationName{ get; set; }

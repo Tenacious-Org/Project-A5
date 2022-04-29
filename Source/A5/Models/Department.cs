@@ -1,6 +1,8 @@
+using A5.Data.Base;
+
 namespace A5.Models
 {
-    public class Department
+    public class Department : IEntityBase
     {
         public int Id{ get; set; }
         public string? DepartmentName{ get; set; }

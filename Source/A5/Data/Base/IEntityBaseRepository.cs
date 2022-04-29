@@ -1,0 +1,12 @@
+using System.Collections.Generic;
+using System.Linq;
+
+namespace A5.Data.Base
+{
+    public interface IEntityBaseRepository<T> where T: class, IEntityBase, new()
+    {
+        public bool Create(T entity);
+        public T GetById(int id);
+        public IEnumerable<T> GetAll();
+    }
+}
