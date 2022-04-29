@@ -2,7 +2,7 @@ namespace A5.Models
 {
     public class Department
     {
-        public int DepartmentId{ get; set; }
+        public int Id{ get; set; }
         public string? DepartmentName{ get; set; }
         public bool IsActive{ get; set; } = true;
 

@@ -2,7 +2,7 @@ namespace A5.Models
 {
     public class Designation
     {
-        public int DesignationId{ get; set; }
+        public int Id{ get; set; }
         public string?  DesignationName{ get; set; }
         public bool IsActive{ get; set; } = true;
 
