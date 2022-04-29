@@ -34,7 +34,28 @@ namespace A5.Controller
         {
             var data = _organisationService.Create(organisation);
             if(data){
-                return Ok();
+                return Ok("Created.");
+            }
+            return BadRequest();
+        }
+
+        [HttpPut("Update")]
+        public ActionResult Update(Organisation organisation, int id)
+        {
+            var data = _organisationService.Update(organisation, id);
+            if(data){
+                return Ok("Updated.");
+            }
+            return BadRequest();
+        }
+
+        [HttpDelete("Disable")]
+        public ActionResult Disable(Organisation organisation, int id)
+        {
+            var data = _organisationService.Disable(organisation, id);
+            if(data)
+            {
+                return Ok("Disabled.");
             }
             return BadRequest();
         }
