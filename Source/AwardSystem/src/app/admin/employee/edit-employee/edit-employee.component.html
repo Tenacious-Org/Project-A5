@@ -1,0 +1,141 @@
+<app-layout></app-layout>
+<app-admin-sidebar></app-admin-sidebar>
+
+<div class="container d-flex justify-content-center table-box">
+
+    <form class="border-box position-relative">
+
+        <span class="border-box-tip"><b>Edit Employee</b></span>
+
+        <div class="row g-3 align-items-center justify-content-center mb-3">
+            <div class="col-auto p-1.5">
+                <label for="firstName" class="col-form-label">First Name</label>
+                <input type="text" id="firstName" text="John" class="form-control" aria-describedby="firstNameHelpInline" Value="Sanjay">
+            </div>
+
+            <div class="col-auto p-1.5">
+                <label for="firstName" class="col-form-label">Last Name</label>
+                <input type="text" id="firstName" class="form-control" aria-describedby="firstNameHelpInline" Value="Subramani">
+
+            </div>
+        </div>
+        <div class="row g-3 align-items-center justify-content-center mb-3">
+            <div class="col-auto p-1.5">
+                <label for="date" class="col-form-label">Date of Birth</label>
+                <input type="date" id="Test_DatetimeLocal" class="form-control" aria-describedby="dateHelpInline" >
+            </div>
+            <div class="col-auto p-1.5">
+                <label for="aceid" class="col-form-label">AceID</label>
+
+                <input type="text" id="aceid" class="form-control" aria-describedby="aceidHelpInline" Value="ACE0123">
+            </div>
+        </div>
+
+        <div class="row g-3 align-items-center justify-content-center mb-3">
+            <div class="col-auto p-1.5">
+
+                <label for="email" class="col-form-label">Email</label>
+
+                <input type="email" id="email" class="form-control" aria-describedby="emailHelpInline" Value="sanjay@aspiresys.com">
+
+            </div>
+     
+            <div class="col-auto p-1.5">
+                <label class="col-form-label">Employee Image</label>
+
+                <input type="file" id="image" class="form-control " aria-describedby="imageHelpInline" Value="image123.jpg">
+
+            </div>
+        </div>
+        <div class="row g-3 align-items-center justify-content-center mb-3">
+            <div class="col-auto p-1.5">
+                <label for="org" class="col-form-label">Organisation</label>
+
+                <div class="input-group">
+                    <select class="custom-select" id="inputGroupSelect04">
+                              <option >Choose...</option>
+                              <option selected value="1">Development</option>
+                              <option value="2">Testing</option>
+                              <option value="3">Support</option>
+                            </select>
+                </div>
+            </div>
+
+            <div class="col-auto p-1.5">
+
+
+                <label for="dept" class="col-form-label">Department</label>
+
+
+                <div class="input-group">
+                    <select class="custom-select" id="inputGroupSelect04">
+                              <option >Choose...</option>
+                              <option value="1">DotNet</option>
+                              <option selected value="2">Java</option>
+                              <option value="3">IIS</option>
+                            </select>
+
+                </div>
+            </div>
+        </div>
+        <div class="row g-3 align-items-center justify-content-center mb-3">
+
+            <div class="col-auto p-1.5">
+
+                <label for="designation" class="col-form-label">Designation</label>
+
+
+                <div class="input-group">
+                    <select class="custom-select" id="inputGroupSelect04">
+                              <option >Choose...</option>
+                              <option selected value="1">Software Engineer</option>
+                              <option value="2">Senior Software Engineer</option>
+                              <option value="3">Team Leader</option>
+                            </select>
+
+                </div>
+            </div>
+
+
+            <div class="col-auto p-1.5">
+
+                <label for="rpname" class="col-form-label">Reporting Person Name</label>
+
+                <div class="input-group">
+                    <select class="custom-select" id="inputGroupSelect04">
+                              <option >Choose...</option>
+                              <option selected value="1">Mohammad Rafi</option>
+                              <option value="2">Savitha Ragunathan</option>
+                              <option value="3">Jaya Ethiraj</option>
+                            </select>
+
+                </div>
+            </div>
+        </div>
+        <div class="row g-3 align-items-center justify-content-center mb-3">
+
+            <div class="col-auto p-1.5">
+                <label for="hrname" class="col-form-label">HR Name</label>
+
+                <div class="input-group">
+                    <select class="custom-select" id="inputGroupSelect04">
+                              <option >Choose...</option>
+                              <option selected value="1">Snigdha agarwal</option>
+                              <option value="2">Dinesh Kumar</option>
+                              <option value="3">Bharathi Subramani</option>
+                            </select>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center align-items-center mt-5 button-group">
+            <a [routerLink]="['../department']" class="btn btn-primary col-lg-2">Edit</a>
+            <a [routerLink]="['../department']" class="btn btn-danger col-lg-2">Cancel</a>
+            
+        </div>
+    </form>
+</div>
+
+
+

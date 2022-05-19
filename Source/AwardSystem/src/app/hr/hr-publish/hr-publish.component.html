@@ -1,0 +1,101 @@
+<app-layout></app-layout>
+<app-hr-sidebar></app-hr-sidebar>
+<div class="container d-flex justify-content-center table-box">
+    <table class="table align-middle mb-0 bg-white">
+                        <thead class="bg-light">
+                          <tr>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Award</th>
+                            <th>Date</th>
+                            <th><div class="btn-group dropdown">
+
+
+                              <select style="border-radius:15px">
+                                  <option><b>AllStatus</b></option>
+                                  <option>Published</option>
+                                  <option>Yet to Publish</option>
+                              </select>
+                              <ul class="dropdown-menu dropdown-item-hovering ">
+                                <li><a class="dropdown-item" href="#">Pending</a></li>
+                                <li><a class="dropdown-item" href="#">Approved</a></li>
+                                <li><a class="dropdown-item" href="#">Rejected</a></li>
+                              </ul>
+                            </div></th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img
+                                    src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                                    alt=""
+                                    style="width: 45px; height: 45px"
+                                    class="rounded-circle"
+                                    />
+                                <div class="ms-3 pl-4">
+                                  <p class="fw-bold mb-1">John Doe</p>
+                                  <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <p class="fw-normal mb-1">Software engineer</p>
+                              <p class="text-muted mb-0">IT department</p>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">Budding Star</p>
+                            </td>
+                            <td>
+                              22/06/2018
+                            </td>
+                            <td><span class="badge badge-danger rounded-pill d-inline">Yet to Publish</span></td>
+                            <td>
+                              <a [routerLink]="['/hr-yettopublish']" routerLinkActive="router-link-active"  type="button" class="btn btn-link btn-sm btn-rounded">
+                                Publish
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img
+                                    src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                                    alt=""
+                                    style="width: 45px; height: 45px"
+                                    class="rounded-circle"
+                                    />
+                                <div class="ms-3 pl-4">
+                                  <p class="fw-bold mb-1">John Doe</p>
+                                  <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <p class="fw-normal mb-1">Software engineer</p>
+                              <p class="text-muted mb-0">IT department</p>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">Budding Star</p>
+                            </td>
+                            <td>
+                              22/06/2018
+                            </td>
+                            <td><span class="badge badge-success rounded-pill  d-inline">Published</span></td>
+                            <td>
+                              <a [routerLink]="['/hr-request-view']" routerLinkActive="router-link-active"  type="button" class="btn btn-link btn-sm btn-rounded">
+                                View
+                              </a>
+                            </td>
+                          </tr>
+
+
+                        </tbody>
+                      </table>
+            </div>
+
+
+
