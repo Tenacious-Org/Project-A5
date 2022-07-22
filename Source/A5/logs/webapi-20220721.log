@@ -1,0 +1,105 @@
+[2022-07-21 12:37:49.580 +05:30 INF] Entity Framework Core 6.0.6 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.6' with options: None
+[2022-07-21 12:37:50.120 +05:30 INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2022-07-21 12:37:50.191 +05:30 INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+[2022-07-21 12:37:50.537 +05:30 INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Organisations] AS [o]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2022-07-21 12:37:50.554 +05:30 INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Departments] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2022-07-21 12:37:50.563 +05:30 INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2022-07-21 12:37:50.573 +05:30 INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Designations] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2022-07-21 12:37:50.583 +05:30 INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Employees] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2022-07-21 12:37:50.593 +05:30 INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AwardTypes] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2022-07-21 12:37:50.601 +05:30 INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2022-07-21 12:37:50.609 +05:30 INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Awards] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2022-07-21 12:37:50.646 +05:30 INF] User profile is available. Using 'C:\Users\jeeva.nagaraj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-07-21 12:37:50.871 +05:30 INF] Now listening on: https://localhost:7275
+[2022-07-21 12:37:50.873 +05:30 INF] Now listening on: http://localhost:5050
+[2022-07-21 12:37:50.883 +05:30 INF] Application started. Press Ctrl+C to shut down.
+[2022-07-21 12:37:50.885 +05:30 INF] Hosting environment: Development
+[2022-07-21 12:37:50.886 +05:30 INF] Content root path: C:\Users\jeeva.nagaraj\Documents\GitHub\DedSecAPI\A5\
+[2022-07-21 12:37:51.417 +05:30 INF] Request starting HTTP/2 GET https://localhost:7275/ - -
+[2022-07-21 12:37:51.688 +05:30 INF] Request:
+Protocol: HTTP/2
+Method: GET
+Scheme: https
+PathBase: 
+Path: /
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Host: localhost:7275
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.62
+:method: [Redacted]
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: [Redacted]
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+sec-fetch-site: [Redacted]
+sec-fetch-mode: [Redacted]
+sec-fetch-user: [Redacted]
+sec-fetch-dest: [Redacted]
+[2022-07-21 12:37:51.689 +05:30 INF] Response:
+StatusCode: 404
+[2022-07-21 12:37:51.701 +05:30 INF] Request finished HTTP/2 GET https://localhost:7275/ - - - 404 0 - 295.9603ms

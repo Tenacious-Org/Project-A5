@@ -17,7 +17,7 @@ namespace A5.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.4")
+                .HasAnnotation("ProductVersion", "6.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -36,7 +36,7 @@ namespace A5.Migrations
                     b.Property<DateTime>("AddedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ApproverId")
+                    b.Property<int?>("ApproverId")
                         .HasColumnType("int");
 
                     b.Property<int>("AwardTypeId")
@@ -48,11 +48,10 @@ namespace A5.Migrations
                     b.Property<string>("CouponCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("HRId")
+                    b.Property<int?>("HRId")
                         .HasColumnType("int");
 
                     b.Property<string>("Reason")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RejectedReason")
@@ -106,6 +105,9 @@ namespace A5.Migrations
                     b.Property<byte[]>("Image")
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<string>("ImageName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -131,8 +133,10 @@ namespace A5.Migrations
                     b.Property<int>("AwardId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("CommentedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Comments")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("EmployeeId")
@@ -162,7 +166,6 @@ namespace A5.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DepartmentName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -202,11 +205,13 @@ namespace A5.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("DesignationName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("UpdatedBy")
                         .HasColumnType("int");
@@ -217,6 +222,8 @@ namespace A5.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DepartmentId");
+
+                    b.HasIndex("RoleId");
 
                     b.ToTable("Designations");
                 });
@@ -256,11 +263,18 @@ namespace A5.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("HRId")
                         .HasColumnType("int");
 
                     b.Property<byte[]>("Image")
                         .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("ImageName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -287,9 +301,9 @@ namespace A5.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HRId");
+                    b.HasIndex("DesignationId");
 
-                    b.HasIndex("OrganisationId");
+                    b.HasIndex("HRId");
 
                     b.HasIndex("ReportingPersonId");
 
@@ -314,7 +328,6 @@ namespace A5.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("OrganisationName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("UpdatedBy")
@@ -326,6 +339,22 @@ namespace A5.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Organisations");
+                });
+
+            modelBuilder.Entity("A5.Models.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("RoleName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("A5.Models.Status", b =>
@@ -340,7 +369,6 @@ namespace A5.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("StatusName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -356,7 +384,7 @@ namespace A5.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("A5.Models.Employee", "Employee")
+                    b.HasOne("A5.Models.Employee", "Awardee")
                         .WithMany()
                         .HasForeignKey("AwardeeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -370,7 +398,7 @@ namespace A5.Migrations
 
                     b.Navigation("AwardType");
 
-                    b.Navigation("Employee");
+                    b.Navigation("Awardee");
 
                     b.Navigation("Status");
                 });
@@ -396,41 +424,53 @@ namespace A5.Migrations
 
             modelBuilder.Entity("A5.Models.Department", b =>
                 {
-                    b.HasOne("A5.Models.Organisation", null)
+                    b.HasOne("A5.Models.Organisation", "Organisation")
                         .WithMany("Departments")
                         .HasForeignKey("OrganisationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Organisation");
                 });
 
             modelBuilder.Entity("A5.Models.Designation", b =>
                 {
-                    b.HasOne("A5.Models.Department", null)
+                    b.HasOne("A5.Models.Department", "Department")
                         .WithMany("Designations")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("A5.Models.Role", "Role")
+                        .WithMany("Designations")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+
+                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("A5.Models.Employee", b =>
                 {
+                    b.HasOne("A5.Models.Designation", "Designation")
+                        .WithMany("Employees")
+                        .HasForeignKey("DesignationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("A5.Models.Employee", "HR")
                         .WithMany("Hrs")
                         .HasForeignKey("HRId");
-
-                    b.HasOne("A5.Models.Organisation", "Organisation")
-                        .WithMany()
-                        .HasForeignKey("OrganisationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
                     b.HasOne("A5.Models.Employee", "ReportingPerson")
                         .WithMany("Reportingpersons")
                         .HasForeignKey("ReportingPersonId");
 
-                    b.Navigation("HR");
+                    b.Navigation("Designation");
 
-                    b.Navigation("Organisation");
+                    b.Navigation("HR");
 
                     b.Navigation("ReportingPerson");
                 });
@@ -438,6 +478,11 @@ namespace A5.Migrations
             modelBuilder.Entity("A5.Models.Department", b =>
                 {
                     b.Navigation("Designations");
+                });
+
+            modelBuilder.Entity("A5.Models.Designation", b =>
+                {
+                    b.Navigation("Employees");
                 });
 
             modelBuilder.Entity("A5.Models.Employee", b =>
@@ -450,6 +495,11 @@ namespace A5.Migrations
             modelBuilder.Entity("A5.Models.Organisation", b =>
                 {
                     b.Navigation("Departments");
+                });
+
+            modelBuilder.Entity("A5.Models.Role", b =>
+                {
+                    b.Navigation("Designations");
                 });
 #pragma warning restore 612, 618
         }

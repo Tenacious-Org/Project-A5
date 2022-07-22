@@ -1,4 +1,5 @@
-using A5.Data.Base;
+using A5.Data.Repository;
+using A5.Data.Repository.Interface;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace A5.Models
@@ -6,7 +7,7 @@ namespace A5.Models
     public class Status
     {
         public int Id {get; set;}
-        public string StatusName {get;set;}
+        public string ? StatusName {get;set;}
         public bool IsActive {get; set;}
     }
 }
